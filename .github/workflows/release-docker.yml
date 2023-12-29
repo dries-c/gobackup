@@ -2,7 +2,7 @@ name: Release Docker Latest
 on:
   push:
     branches:
-      - "release-docker"
+      - "main"
 
 jobs:
   docker:
@@ -27,7 +27,7 @@ jobs:
           push: true
           platforms: linux/amd64,linux/arm64
           tags: |
-            huacnlee/gobackup:latest
+            driesboy/gobackup:latest
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
