@@ -4,7 +4,7 @@ RUN apk add \
   curl \
   ca-certificates \
   openssl \
-  postgresql16-client \
+  postgresql17-client \
   mariadb-connector-c \
   mysql-client \
   mariadb-backup \
