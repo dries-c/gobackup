@@ -4,7 +4,7 @@
 <h1 align="center">GoBackup</h1>
 <p align="center">CLI tool for backup your databases, files to cloud storages in schedully.</p>
 <p align="center">
-   <a href="https://github.com/gobackup/gobackup/actions?query=workflow%3AGo"><img src="https://github.com/gobackup/gobackup/workflows/Go/badge.svg" alt="Build Status" /></a>
+   <a href="https://github.com/gobackup/gobackup/actions?query=workflow%3AGo"><img src="https://github.com/gobackup/gobackup/actions/workflows/test.yml/badge.svg" alt="Build Status" /></a>
    <a href="https://github.com/gobackup/gobackup/releases"><img src="https://img.shields.io/github/v/release/gobackup/gobackup?label=Version&color=1" alt="GitHub release (latest by date)"></a>
    <a href="https://hub.docker.com/r/huacnlee/gobackup"><img src="https://img.shields.io/docker/v/huacnlee/gobackup?label=Docker&color=blue" alt="Docker Image Version (latest server)"></a>
    <a href="https://formulae.brew.sh/formula/gobackup"><img alt="homebrew version" src="https://img.shields.io/homebrew/v/gobackup?color=success&label=Brew"></a>
@@ -40,11 +40,13 @@ https://gobackup.github.io
 
 - MySQL
 - PostgreSQL
-- Redis - `mode: sync/copy`
+- Redis
 - MongoDB
 - SQLite
 - Microsoft SQL Server
 - InfluxDB
+- MariaDB
+- etcd
 
 ### Storages
 
@@ -179,6 +181,10 @@ Configure your schedule in `gobackup.yml`
 ```yml
 models:
   my_backup:
+    before_script: |
+      echo "Before script"
+    after_script: |
+      echo "After script"
     schedule:
       # At 04:05 on Sunday.
       cron: "5 4 * * sun"
@@ -252,7 +258,7 @@ $ kill -QUIT 20443
 
 ## Contributing
 
-The [DEVELOPMENT](./DEVELOPMENT.md) document will help you to setup development environment, and guide you how to test them in local.
+The [DEVELOPMENT](./DEVELOPMENT) document will help you to setup development environment, and guide you how to test them in local.
 
 When you finish your work, please send a PR.
 
